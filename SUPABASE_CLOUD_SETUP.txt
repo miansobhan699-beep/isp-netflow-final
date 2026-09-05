@@ -1,0 +1,35 @@
+NETFLOW ISP - SUPABASE CLOUD SETUP
+=================================
+
+The project is configured for the Supabase project already present in script6.js.
+The website uses only the publishable/anon key; never put a service-role key in the browser.
+
+ONE-TIME SETUP
+--------------
+1. Open your Supabase project.
+2. Go to SQL Editor -> New query.
+3. Open the included file: supabase_setup.sql
+4. Copy the complete SQL into the SQL Editor and Run it.
+5. In Authentication, create/sign up the first ISP account.
+6. Open the website -> Settings.
+7. The Supabase Project URL and publishable/anon key are already preconfigured.
+8. Click Test Cloud Connection.
+9. Click Create Account or Login.
+
+HOW CLOUD DATA WORKS
+--------------------
+After login, the current ISP workspace is loaded from public.isp_workspaces.
+Changes made in Customers, Companies, Packages, Billing, etc. are synced to the
+workspace JSON and Supabase Realtime keeps approved sessions updated.
+
+IMPORTANT
+---------
+- The test Excel file uploaded during development is NOT included in this package.
+- No test customers are inserted into Supabase by this package.
+- Excel import only writes to cloud after a signed-in user imports the file.
+- Do not put a Supabase service-role/secret key in the website.
+
+IF LOGIN SHOWS 'WORKSPACE COULD NOT BE LOADED'
+-----------------------------------------------
+The SQL setup has not been run completely, or the signed-in account has not received
+an isp_profiles row. Re-run supabase_setup.sql in SQL Editor, then log in again.
